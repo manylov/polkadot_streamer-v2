@@ -51,27 +51,4 @@ describe('Interface @implementationOf decorator and createInterface function', (
       fail('baz is not instance of IFoo');
     }
   });
-
-  test('should throw exception when @implementationOf decorator is applied to an object', async () => {
-
-    const IFoo = createInterface<IFoo>('IFoo');
-
-    const IBar = createInterface<IBar>('IBar');
-
-    interface IFoo {
-      helloFoo(): string;
-    }
-
-    interface IBar {
-      helloBar(): string;
-    }
-
-    class Foo implements IFoo {
-      helloFoo(): string {
-        return 'helloFoo';
-      }
-    }
-
-    implementationOf(IFoo)(<any> new Foo());
-  });
 });
