@@ -1,0 +1,73 @@
+{
+  "name": "inversify-showcase",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node ./src/index.ts",
+    "start:prod": "node --trace-warnings ./dist/index.js --sync --sub-fin-head",
+    "test": "jest --no-cache",
+    "lint": "eslint --ext .js,.ts ./src/index.ts"
+  },
+  "author": "infloop",
+  "license": "MIT",
+  "description": "Grabs Eth2.0 Validator balances every N slots and stores them in posgress db",
+  "engines": {
+    "npm": ">=6",
+    "node": ">=14"
+  },
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "dotenv": "^10.0.0",
+    "got": "^11.8.2",
+    "inversify": "git+https://git@github.com/inversify/InversifyJS.git#368418e5b52fd8007fa50ded55cba69d3a9d5f5b",
+    "pg-promise": "^10.10.2",
+    "pino": "^6.11.3",
+    "pino-pretty": "^5.1.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/app-root-path": "^1.2.4",
+    "@types/jest": "^26.0.23",
+    "@types/pino": "^6.3.8",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "14.1.1",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
+    "jest": "^27.0.6",
+    "mocha": "^9.0.1",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./**/*.{js,ts}",
+      "!./**/*.types.ts"
+    ],
+    "coverageReporters": [
+      "text"
+    ],
+    "coverageDirectory": "../coverage",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".test.ts$",
+    "testEnvironment": "node"
+  }
+}

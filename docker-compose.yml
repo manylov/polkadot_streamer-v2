@@ -1,0 +1,37 @@
+version: '3.7'
+services:
+  db:
+    build: './db'
+    restart: always
+    hostname: postgress
+    environment:
+      - POSTGRES_DB=test
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+#  app:
+#    build: ./
+#    restart: always
+#    env:
+#      - DB_HOST=db
+#      - DB_USER=admin
+#      - DB_PASSWORD=password
+#      - DB_NAME=stats
+#      - DB_PORT=5432
+#      - LOG_LEVEL=info
+#      - LIGHTHOUSE_API=http://host.docker.internal:3501
+#      - FETCH_INTERVAL_SECONDS=1800
+
+networks:
+  default:
+    name: inversify-showcase
+    driver_opts:
+      com.docker.network.bridge.name: inversify-sc
