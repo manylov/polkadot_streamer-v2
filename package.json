@@ -12,7 +12,7 @@
   },
   "author": "infloop",
   "license": "MIT",
-  "description": "Grabs Eth2.0 Validator balances every N slots and stores them in posgress db",
+  "description": "Inversify DI showcase",
   "engines": {
     "npm": ">=6",
     "node": ">=14"

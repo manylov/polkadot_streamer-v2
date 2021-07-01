@@ -17,19 +17,6 @@ services:
     ports:
       - 8080:8080
 
-#  app:
-#    build: ./
-#    restart: always
-#    env:
-#      - DB_HOST=db
-#      - DB_USER=admin
-#      - DB_PASSWORD=password
-#      - DB_NAME=stats
-#      - DB_PORT=5432
-#      - LOG_LEVEL=info
-#      - LIGHTHOUSE_API=http://host.docker.internal:3501
-#      - FETCH_INTERVAL_SECONDS=1800
-
 networks:
   default:
     name: inversify-showcase
