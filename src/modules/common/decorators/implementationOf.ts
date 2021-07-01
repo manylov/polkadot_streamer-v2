@@ -6,11 +6,11 @@ import { InterfaceTag }      from '../types/InterfaceTag';
  * Class decorator indicating that class implements interface
  *
  * This is needed for proper work of:
- * console.log( foo instanceof IFoo`)  //
+ * console.log( foo instanceof IFoo)
  */
 export function implementationOf<T>(interfaceTag: InterfaceTag<T>) {
   // tslint:disable-next-line:only-arrow-functions
-  return function (target: new (...args: any[]) => T): any {
+  return function (target: new (...args: unknown[]) => T): any {
     const tags: symbol[] = [];
 
     if (!(interfaceTag instanceof Function)) {
