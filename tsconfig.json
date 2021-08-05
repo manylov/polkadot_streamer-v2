@@ -1,19 +1,24 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "moduleResolution": "Node",
     "isolatedModules": false,
     "module": "CommonJS",
+    "rootDir": "./src",
     "strict": true,
     "target": "ESNext",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "types": ["reflect-metadata", "inversify", "node", "jest"],
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": {
+      "@services/*": ["services/*"],
+      "@modules/*": ["modules/*"],
+      "@repositories/*": ["repositories/*"]
+    }
   },
-  "include": [
-    "./src/**/*.ts"
-  ]
+  "include": ["./src/**/*.ts", "knexfile.ts"]
 }
