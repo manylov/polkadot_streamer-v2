@@ -1,55 +1,55 @@
-import pino, { Bindings, LogFn, Logger as PinoLogger } from 'pino';
-import { ILogger }                                     from './ILogger';
-import { injectable }                                  from 'inversify';
-import { implementationOf }                            from '../common/decorators/implementationOf';
+import pino, { Bindings, LogFn, Logger as PinoLogger } from 'pino'
+import { ILogger } from './ILogger'
+import { injectable } from 'inversify'
+import { implementationOf } from '../common/decorators/implementationOf'
 
 @injectable()
 @implementationOf(ILogger)
 export class Logger implements ILogger {
-  private logger: PinoLogger;
+  private logger: PinoLogger
 
   public constructor() {
     this.logger = pino({
       level: 'info',
       prettyPrint: true,
-    });
+    })
   }
 
   trace(...params: Parameters<LogFn>): void {
-    const [msg, ...args] = params;
-    this.logger.trace(msg, ...args);
+    const [msg, ...args] = params
+    this.logger.trace(msg, ...args)
   }
 
   debug(...params: Parameters<LogFn>): void {
-    const [msg, ...args] = params;
-    this.logger.debug(msg, ...args);
+    const [msg, ...args] = params
+    this.logger.debug(msg, ...args)
   }
 
   info(...params: Parameters<LogFn>): void {
-    const [msg, ...args] = params;
-    this.logger.info(msg, ...args);
+    const [msg, ...args] = params
+    this.logger.info(msg, ...args)
   }
 
   warn(...params: Parameters<LogFn>): void {
-    const [msg, ...args] = params;
-    this.logger.warn(msg, ...args);
+    const [msg, ...args] = params
+    this.logger.warn(msg, ...args)
   }
 
   error(...params: Parameters<LogFn>): void {
-    const [msg, ...args] = params;
-    this.logger.error(msg, ...args);
+    const [msg, ...args] = params
+    this.logger.error(msg, ...args)
   }
 
   fatal(...params: Parameters<LogFn>): void {
-    const [msg, ...args] = params;
-    this.logger.fatal(msg, ...args);
+    const [msg, ...args] = params
+    this.logger.fatal(msg, ...args)
   }
 
   child(bindings: Bindings): pino.Logger {
-    return this.logger.child(bindings);
+    return this.logger.child(bindings)
   }
 
   setLevel(level: string): void {
-    this.logger.level = level;
+    this.logger.level = level
   }
 }
