@@ -5,8 +5,12 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "ts-node ./src/index.ts",
+    "start": "ts-node -r tsconfig-paths/register ./src/index.ts",
     "start:prod": "node --trace-warnings ./dist/index.js --sync --sub-fin-head",
+    "migrate:latest": "knex --knexfile ./src/modules/database/knexfile.ts  migrate:latest",
+    "migrate:up": "knex --knexfile ./src/modules/database/knexfile.ts  migrate:up",
+    "migrate:down": "knex --knexfile ./src/modules/database/knexfile.ts  migrate:down",
+    "migrate:rollback": "knex --knexfile ./src/modules/database/knexfile.ts  migrate:rollback --all",
     "test": "jest --no-cache",
     "lint": "eslint --ext .js,.ts ./src/index.ts"
   },
@@ -18,16 +22,24 @@
     "node": ">=14"
   },
   "dependencies": {
+    "@polkadot/api": "^5.2.1",
+    "@polkadot/types": "^5.2.1",
     "app-root-path": "^3.0.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "dotenv": "^10.0.0",
+    "fastify": "^3.19.2",
+    "fastify-swagger": "^4.8.3",
     "got": "^11.8.2",
     "inversify": "git+https://git@github.com/inversify/InversifyJS.git#368418e5b52fd8007fa50ded55cba69d3a9d5f5b",
+    "knex": "^0.95.9",
+    "pg": "^8.6.0",
     "pg-promise": "^10.10.2",
     "pino": "^6.11.3",
     "pino-pretty": "^5.1.0",
-    "reflect-metadata": "^0.1.13"
+    "prom-client": "^13.1.0",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.14.5",
